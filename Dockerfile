@@ -9,9 +9,6 @@ RUN apt-get update && apt-get install -y \
     nano \
     && mkdir /var/run/sshd
 
-# Set root password (or better: use keys)
-RUN echo 'root:runpod' | chpasswd
-
 # SSH keep-alive settings (optional but recommended)
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && \
     echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config && \
